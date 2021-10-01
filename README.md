@@ -1,2 +1,3 @@
 # DSALG
-Practice Datastructures
+
+Repository to record example datastructures
