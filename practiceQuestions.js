@@ -59,6 +59,7 @@ const contNum = arr => {
 }
 
 contNum(input);
+
 //   *   Given we have a single linked list of unique integers. Write a function that finds the largest number in the list.
 
 // e.g.
@@ -71,8 +72,8 @@ let sllArray = [1, 5, 2, 6, 8, 7, 3];
 const largestNum = array => {
   let current = 0;
   for (let i = 0; i < array.length; i++) {
-    num1 = array[i];
-    num2 = array[i+1];
+    let num1 = array[i];
+    let num2 = array[i+1];
     if (num1 > num2) {
       if (current > num1) {
         return current
