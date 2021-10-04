@@ -1,7 +1,10 @@
-
-// merge periods
-// 1:2 3:5 4:7 8:9
-// 1:2 3:7 8:9
+/* merge periods
+* You are given an array of string values, you will have to check for overlap and replace the numbers
+* if [3:5, 4:7] the second digit of 3:5 being 5 > the first digit of 4:7 being 4. You therefore, combine it
+* to get the output 3:7.
+* example input = ['1:2', '3:5', '4:7', '8:9']
+* expected output = ['1:2', '3:7', '8:9']
+*/
 
 let input = ['1:2', '3:5', '4:7', '8:9', '8:10'];
 
