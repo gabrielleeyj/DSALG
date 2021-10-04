@@ -3,7 +3,7 @@
 // 1:2 3:5 4:7 8:9
 // 1:2 3:7 8:9
 
-let input = ['1:2', '3:5', '4:7', '8:9'];
+let input = ['1:2', '3:5', '4:7', '8:9', '8:10'];
 
 const overlap = array => {
 
@@ -20,22 +20,21 @@ const overlap = array => {
 
   let periodArray = [];
   for (let i = 0; i < bufferArray.length; i++) {
-    if (i != bufferArray.length - 1) {
+    if (i !== bufferArray.length - 1) {
       let firstNum = bufferArray[i][1];
-      let secondNum = bufferArray[i+1][0];
+      let secondNum = bufferArray[i + 1][0];
       if (firstNum < secondNum) { // 2,3
         if (!bufferArray[i - 1]) {
           let periodString = `${bufferArray[i][0]}:${bufferArray[i][1]}`;
-          periodArray.push(periodString); // ['1:2']
+          periodArray.push(periodString);
         }
+      } else if (firstNum > secondNum) {
+        let periodString = `${bufferArray[i][0]}:${bufferArray[i + 1][1]}`;
+        periodArray.push(periodString);
+      } else {
+        let periodString = `${bufferArray[i][0]}:${bufferArray[i][1]}`;
+        periodArray.push(periodString);
       }
-      if (firstNum > secondNum) {
-        let periodString = `${bufferArray[i][0]}:${bufferArray[i+1][1]}`;
-        periodArray.push(periodString); // ['3:4']
-      }
-    } else {
-      let periodString = `${bufferArray[i][0]}:${bufferArray[i][1]}`;
-      periodArray.push(periodString);
     }
   }
   console.log(periodArray);
