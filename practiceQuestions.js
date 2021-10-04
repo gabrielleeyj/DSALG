@@ -24,6 +24,24 @@ numSum(uniqueArray, 5)
 
 //   *   2d array – javascript - 0 spinode water and 1 land how do you scan it to find the number islands . - classic problems – how would you make it better, readable, different techniques, N cube complexity – describe how much time or space problem takes to be saved, 0 to the power n squared – gave you a list of 10 items and you need to go through the ten items 1 times, big
 
+let map = [0,0,0,0,0,0,1,1,0,0];
+
+const countIsland = array => {
+  if (!array) {
+    return Error
+  }
+  let count = 0;
+
+  // O(N)
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 1) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(countIsland(map));
 
 //   *   Given an array of numbers. Find the longest set of continuous numbers and print it out
 
@@ -37,8 +55,7 @@ const contNum = arr => {
   let i = 0, longest = 1, current = 1, counts = [];
 
   while (i < arr.length) {
-    if (arr[i] == arr[i - 1] + 1) {
-      console.log('pushing value', arr[i]);
+    if (arr[i] === arr[i - 1] + 1) {
       counts.push(arr[i])
       current ++
     } else {
@@ -72,15 +89,13 @@ let sllArray = [1, 5, 2, 6, 8, 7, 3];
 const largestNum = array => {
   let current = 0;
   for (let i = 0; i < array.length; i++) {
-    let num1 = array[i];
-    let num2 = array[i+1];
-    if (num1 > num2) {
-      if (current > num1) {
+    if (array[i] > array[i+1]) {
+      if (current > array[i]) {
         return current
       }
-      current = num1
+      current = array[i]
     }
   }
 }
 
-largestNum(sllArray);
+console.log('largest num in array', largestNum(sllArray));
