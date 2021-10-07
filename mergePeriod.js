@@ -24,7 +24,6 @@ const overlap = array => {
   }
 
   let periodArray = [], periodString;
-  console.log(bufferArray);
   // loop through the bufferArray and check index [1] and [0] of array
   for (let i = 0; i < bufferArray.length; i++) {
     if (i !== bufferArray.length - 1) {
@@ -33,44 +32,35 @@ const overlap = array => {
       console.log('firstNum: ', firstNum, 'secondNum: ', secondNum);
 
       if (firstNum < secondNum) {
-            if (!bufferArray[i -1]) {
+            if (!bufferArray[i - 1]) {
               periodString = `${bufferArray[i][0]}:${bufferArray[i][1]}`;
               console.log('pushing periodString 1', periodString);
               periodArray.push(periodString);
-            } else {
-              periodString = `${bufferArray[i+1][0]}:${bufferArray[i+1][1]}`;
-              console.log('pushing periodString 2', periodString);
-              periodArray.push(periodString);
             }
-      }
-      if (firstNum > secondNum) {
-        if (!bufferArray[i-1]) {
-          periodString = `${bufferArray[i][0]}:${bufferArray[i + 1][1]}`;
-          console.log('pushing periodString 3', periodString);
-          periodArray.push(periodString);
-        } else {
+      } else if (firstNum > secondNum) {
+        if (i !== bufferArray.length - 1) {
           periodString = `${bufferArray[i][0]}:${bufferArray[i+1][1]}`;
-          console.log('pushing periodString 4', periodString);
+          console.log('pushing periodString 3', periodString);
           periodArray.push(periodString);
         }
       }
     } else {
       const firstNum = bufferArray[i-1][1];
       const secondNum = bufferArray[i][0];
-      console.log('else', 'firstNum',firstNum, 'secondNum',secondNum);
+      console.log('else firstNum',firstNum,'secondNum',secondNum);
       if (firstNum > secondNum) {
-        periodString = `${bufferArray[i-1][1]}:${bufferArray[i][0]}`;
+        periodString = `${bufferArray[i][0]}:${bufferArray[i][1]}`;
+        console.log('pushing periodString 5', periodString);
         periodArray.push(periodString);
-      }
-      if (firstNum < secondNum) {
+      } else if (firstNum < secondNum) {
         periodString = `${bufferArray[i-1][0]}:${bufferArray[i][1]}`;
+        console.log('pushing periodString 6', periodString);
         periodArray.push(periodString);
       }
     }
   }
-  console.log(periodArray);
   return periodArray;
 }
 
-overlap(input);
-overlap(input2);
+console.log('output 1', overlap(input));
+console.log('output 2', overlap(input2));
