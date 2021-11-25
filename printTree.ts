@@ -37,7 +37,7 @@ const myTree: ITreeNode = {
 };
 
 
-const loop = (tree : ITreeNode) => {
+const printTree = (tree : ITreeNode) => {
 
     // handle the error if input does not exist
     if (!tree) {
@@ -55,4 +55,4 @@ const loop = (tree : ITreeNode) => {
     }
 }
 
-loop(myTree);
+printTree(myTree);
